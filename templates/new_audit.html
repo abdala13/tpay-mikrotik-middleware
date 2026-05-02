@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<div class="card auth"><h1>New Website Audit</h1><p>Enter a public website URL. TrustLens performs safe, non-invasive first-page analysis only.</p><form method="post">{{ form.hidden_tag() }}<label>Website URL{{ form.url(placeholder='https://example.com') }}</label>{{ form.submit(class_='btn') }}</form></div>{% endblock %}

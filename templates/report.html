@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+<div class="header"><div><h1>{{ audit.title }}</h1><p>{{ audit.normalized_url }}</p></div><a class="btn" href="{{ url_for('pdf.download_pdf', audit_id=audit.id) }}">Download PDF</a></div>
+<div class="grid3"><div class="card metric"><span>Trust Score</span><strong>{{ audit.trust_score }}/100</strong></div><div class="card metric"><span>Conversion Risk</span><strong>{{ audit.conversion_risk }}</strong></div><div class="card metric"><span>Status</span><strong>{{ audit.status }}</strong></div></div>
+<div class="card"><h2>Executive Summary</h2><p>{{ report.summary }}</p></div>
+<div class="grid2"><div class="card"><h2>Top Problems</h2><ul>{% for p in report.top_problems %}<li>{{ p }}</li>{% endfor %}</ul></div><div class="card"><h2>Missing Elements</h2><ul>{% for m in report.missing_elements %}<li>{{ m }}</li>{% else %}<li>No major missing element detected.</li>{% endfor %}</ul></div></div>
+<div class="card"><h2>Score Breakdown</h2><table><tr><th>Area</th><th>Earned</th><th>Reason</th></tr>{% for d in report.score_details %}<tr><td>{{ d.name }}</td><td>{{ d.earned }}/{{ d.points }}</td><td>{{ d.reason }}</td></tr>{% endfor %}</table></div>
+<div class="card"><h2>Recommendations</h2><div class="recommendations">{% for r in report.recommendations %}<div class="rec"><b>[{{ r.priority }}] {{ r.title }}</b><p>{{ r.detail }}</p></div>{% endfor %}</div></div>
+{% endblock %}

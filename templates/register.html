@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<div class="auth card"><h1>Create account</h1><form method="post">{{ form.hidden_tag() }}<label>Name{{ form.name() }}</label><label>Email{{ form.email() }}</label><label>Password{{ form.password() }}</label>{{ form.submit(class_='btn') }}</form></div>{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">SaaS trust audit engine</p>
+    <h1>Your website may be online, but does it feel trustworthy enough to buy from?</h1>
+    <p class="lead">TrustLens AI scans your public landing page for trust, UX, security signals, pricing clarity, and conversion friction.</p>
+    <div class="actions"><a class="btn big" href="{{ url_for('auth.register') }}">Run Free Audit</a><a class="ghost" href="#pricing">View Pricing</a></div>
+  </div>
+  <div class="scorecard"><span>Trust Score</span><strong>78</strong><p>Medium risk: missing refund policy and social proof.</p></div>
+</section>
+<section class="grid3">
+  <div class="card"><h3>Trust Signals</h3><p>Legal pages, contact clarity, social proof, HTTPS, and brand credibility.</p></div>
+  <div class="card"><h3>Conversion Risk</h3><p>CTA clarity, pricing clarity, signup friction, and buyer objections.</p></div>
+  <div class="card"><h3>Safe Security Review</h3><p>Non-invasive public checks only: headers, HTTPS, and visible errors.</p></div>
+</section>
+<section id="pricing" class="card"><h2>Pricing</h2><div class="plans"><div><b>Free</b><p>3 scans/month</p></div><div><b>Starter</b><p>25 scans + PDF</p></div><div><b>Pro</b><p>150 scans + client reports</p></div><div><b>Agency</b><p>1000 scans + white label ready</p></div></div></section>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}
+<div class="header"><div><h1>Dashboard</h1><p>Plan: <b>{{ current_user.plan_name }}</b> · Used {{ current_user.scans_used }}/{{ current_user.monthly_scan_limit }} · Remaining {{ current_user.scans_remaining }}</p></div><a class="btn" href="{{ url_for('main.new_audit') }}">New Website Audit</a></div>
+<div class="grid3"><div class="card metric"><span>Scans Left</span><strong>{{ current_user.scans_remaining }}</strong></div><div class="card metric"><span>Plan</span><strong>{{ current_user.plan_name }}</strong></div><div class="card metric"><span>Status</span><strong>{{ current_user.subscription_status }}</strong></div></div>
+<div class="card"><h2>Latest audits</h2><table><tr><th>Website</th><th>Score</th><th>Risk</th><th>Status</th><th></th></tr>{% for a in audits %}<tr><td>{{ a.title or a.url }}</td><td><span class="badge">{{ a.trust_score }}</span></td><td>{{ a.conversion_risk }}</td><td>{{ a.status }}</td><td><a href="{{ url_for('main.report', audit_id=a.id) }}">View</a></td></tr>{% else %}<tr><td colspan="5">No audits yet.</td></tr>{% endfor %}</table></div>
+{% endblock %}

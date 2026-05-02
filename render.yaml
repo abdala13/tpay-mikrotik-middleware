@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: trustlens-ai
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --log-level info --access-logfile - --error-logfile -
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: APP_NAME
+        value: TrustLens AI
+      - key: FLASK_ENV
+        value: production
+      - key: ALLOWED_SCAN_TIMEOUT
+        value: 10
+      - key: FREE_PLAN_LIMIT
+        value: 3
